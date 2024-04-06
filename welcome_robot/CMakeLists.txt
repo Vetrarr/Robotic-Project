@@ -116,6 +116,7 @@ add_executable(datmo_welcome_robot_node src/datmo_node.cpp src/datmo.cpp)
 add_executable(action_welcome_robot_node src/action_node.cpp)
 add_executable(rotation_welcome_robot_node src/rotation_node.cpp)
 add_executable(localization_welcome_robot_node src/localization_node.cpp src/localization.cpp)
+add_executable(moving_welcome_robot_node src/robot_moving_node.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
@@ -127,6 +128,7 @@ target_link_libraries(datmo_welcome_robot_node ${catkin_LIBRARIES})
 target_link_libraries(action_welcome_robot_node ${catkin_LIBRARIES})
 target_link_libraries(rotation_welcome_robot_node ${catkin_LIBRARIES})
 target_link_libraries(localization_welcome_robot_node ${catkin_LIBRARIES})
+target_link_libraries(moving_welcome_robot_node ${catkin_LIBRARIES})
 
 #############
 ## Install ##
