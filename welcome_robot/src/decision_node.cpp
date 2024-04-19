@@ -401,6 +401,8 @@ void process_interacting_with_the_person()
         ROS_INFO("person_position: (%f, %f)", person_position.x, person_position.y);
         // TO COMPLETE:
         // if the person goes away from robair, after a while (use frequency), we switch to the state "rotating_to_the_base"
+
+        //testing the comment
     }
 
     // TO COMPLETE:
