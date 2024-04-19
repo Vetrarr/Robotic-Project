@@ -392,17 +392,37 @@ void process_interacting_with_the_person()
         ROS_INFO("press enter to continue");
         getchar();
         frequency = 0;
+        previous_person_position = person_position;
     }
 
     // Processing of the state
     // Robair does not move and interacts with the moving person until the moving person goes away from robair
     if ( new_person_position )
     {
+        bool person_moved = distancePoints(person_position, previous_person_position) > detection_threshold;
+        bool moved_away=distance = sqrt(pow(person_position.x,2)+pow(person_position.y))-sqrt(pow(previous_person_position.x,2)+pow(previous_person_position.y))>0.5;
         ROS_INFO("person_position: (%f, %f)", person_position.x, person_position.y);
         // TO COMPLETE:
         // if the person goes away from robair, after a while (use frequency), we switch to the state "rotating_to_the_base"
 
         //testing the comment
+        if(person_lost){
+            person_moved=true; 
+            moved_away=true;
+        }
+        
+        if(person_moved and moved_away){
+            frequency+=1;
+            if(frequency>50){
+                current_state = EState::rotating_to_the_base;
+            }
+        }
+        else{
+            frequency=0;
+        }
+    }
+        
+
     }
 
     // TO COMPLETE:
